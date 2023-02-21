@@ -1,0 +1,32 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 150px;
+  background-color: hsl(0, 0%, 98%);
+}
+
+.hovered {
+  height: 30px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.deroulant-off {
+  display: none;
+}
+.deroulant-on {
+  display: block;
+}
+.displayed {
+  background-color: white;
+  border-radius: 5px;
+}
+li {
+  width: 100px;
+  height: 50px;
+  list-style-type: none;
+  background-color: white;
+  cursor: pointer;
+}
