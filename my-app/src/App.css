@@ -1,14 +1,26 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.miniatures-div {
+.miniatures-div-day,
+.miniatures-div-night {
   display: flex;
   flex-wrap: wrap;
-  background-color: hsl(0, 0%, 98%);
   gap: 50px;
   max-width: 100vw;
+  min-height: 70vh;
+  padding-left: 5%;
+  padding-right: 5%;
   justify-content: center;
+}
+
+.miniatures-div-day {
+  background-color: hsl(0, 0%, 98%);
+}
+
+.miniatures-div-night {
+  background-color: hsl(207, 26%, 17%);
+}
+
+.error-day {
+  color: hsl(207, 26%, 17%);
+}
+.error-night {
+  color: hsl(0, 0%, 98%);
 }

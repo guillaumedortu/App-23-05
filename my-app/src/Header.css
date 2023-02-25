@@ -1,0 +1,40 @@
+.header-day,
+.header-night {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  height: 10vh;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.header-day {
+  background-color: white;
+}
+
+.header-night {
+  background-color: hsl(209, 23%, 22%);
+}
+
+.title-day {
+  font-size: 24px;
+  color: black;
+}
+.title-night {
+  font-size: 24px;
+  color: white;
+}
+.switch-button-day,
+.switch-button-night {
+  cursor: pointer;
+  border: none;
+}
+
+.switch-button-day {
+  background-color: white;
+}
+.switch-button-night {
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 98%);
+}

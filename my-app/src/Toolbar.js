@@ -10,17 +10,50 @@ export default function Toolbar(props) {
   console.log(props.region);
 
   return (
-    <div className="toolbar">
-      <input onChange={handleChange} className="search"></input>
+    <div className={props.theme === "day" ? "toolbar-day" : "toolbar-night"}>
+      <div
+        className={
+          props.theme === "day" ? "search-bar-day" : "search-bar-night"
+        }
+      >
+        <span
+          className={
+            props.theme === "day" ? "search-icon-day" : "search-icon-night"
+          }
+        >
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </span>
+        <input
+          onChange={handleChange}
+          className={
+            props.theme === "day" ? "search-input-day" : "search-input-night"
+          }
+          placeholder="Search for a country..."
+        ></input>
+      </div>
       <div className="regions">
         <div
+          className={"deroulant-div"}
           onMouseEnter={() => setDisplayed("deroulant-on")}
           onMouseLeave={() => setDisplayed("deroulant-off")}
         >
-          <p>Filter by region</p>
-          <ul className={displayed}>
+          <div
+            className={
+              props.theme === "day" ? "filter-div-day" : "filter-div-night"
+            }
+          >
+            <p className="filter-text">Filter by region</p>
+            <i className="fa-solid fa-caret-down"></i>
+          </div>
+          <ul
+            className={
+              props.theme === "day" ? displayed + "-day" : displayed + "-night"
+            }
+          >
             <li
-              className="region-all"
+              className={
+                props.theme === "day" ? "region-all-day" : "region-all-night"
+              }
               onClick={() => {
                 props.setRegion("");
                 props.handleMap();
@@ -28,22 +61,40 @@ export default function Toolbar(props) {
             >
               All
             </li>
-            <li className="region" onClick={() => props.setRegion("Africa")}>
+            <li
+              className={props.theme === "day" ? "region-day" : "region-night"}
+              onClick={() => props.setRegion("Africa")}
+            >
               Africa
             </li>
-            <li className="region" onClick={() => props.setRegion("Americas")}>
+            <li
+              className={props.theme === "day" ? "region-day" : "region-night"}
+              onClick={() => props.setRegion("Americas")}
+            >
               Americas
             </li>
-            <li className="region" onClick={() => props.setRegion("Asia")}>
+            <li
+              className={props.theme === "day" ? "region-day" : "region-night"}
+              onClick={() => props.setRegion("Asia")}
+            >
               Asia
             </li>
-            <li className="region" onClick={() => props.setRegion("Europe")}>
+            <li
+              className={props.theme === "day" ? "region-day" : "region-night"}
+              onClick={() => props.setRegion("Europe")}
+            >
               Europe
             </li>
-            <li className="region" onClick={() => props.setRegion("Oceania")}>
+            <li
+              className={props.theme === "day" ? "region-day" : "region-night"}
+              onClick={() => props.setRegion("Oceania")}
+            >
               Oceania
             </li>
-            <li className="region" onClick={() => props.setRegion("Antarctic")}>
+            <li
+              className={props.theme === "day" ? "region-day" : "region-night"}
+              onClick={() => props.setRegion("Antarctic")}
+            >
               Antartic
             </li>
           </ul>

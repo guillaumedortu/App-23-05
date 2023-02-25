@@ -1,0 +1,119 @@
+.detail-global-day,
+.detail-global-night {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  gap: 5%;
+  padding-left: 5%;
+  justify-content: space-evenly;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.detail-global-day {
+  background-color: hsl(0, 0%, 98%);
+  box-shadow: 10px 0 6px -2px #888;
+}
+
+.detail-global-night {
+  background-color: hsl(207, 26%, 17%);
+  box-shadow: 10px 0 6px -2px rgb(0, 0, 0);
+}
+
+.back-button-day,
+.back-button-night {
+  width: 8%;
+  min-width: 100px;
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+  background-color: white;
+  cursor: pointer;
+}
+.back-button-day {
+  box-shadow: 2px 2px 10px #cdcdcd;
+  color: hsl(200, 15%, 8%);
+}
+.back-button-night {
+  background-color: hsl(209, 23%, 22%);
+  box-shadow: 2px 2px 10px rgb(37, 37, 37);
+  color: hsl(0, 0%, 98%);
+}
+
+.detail-country-day,
+.detail-country-night {
+  display: flex;
+  align-items: flex-start;
+  width: 90%;
+}
+
+.detail-country-day {
+  color: hsl(200, 15%, 8%);
+}
+.detail-country-night {
+  color: hsl(0, 0%, 98%);
+}
+
+.detail-flag-day,
+.detail-flag-night {
+  height: 320px;
+  width: 550px;
+  object-fit: cover;
+}
+.detail-flag-day {
+  box-shadow: 1px 1px 5px #cdcdcd;
+}
+.detail-flag-night {
+  box-shadow: 2px 2px 10px rgb(37, 37, 37);
+}
+.info-global {
+  padding-left: 5%;
+  max-width: 40%;
+}
+.infos-text {
+  display: flex;
+  align-items: flex-start;
+  font-size: 14px;
+  gap: 15px;
+}
+
+.country-name {
+  margin-top: 0;
+}
+.info-description {
+  font-weight: 600;
+}
+.info-data {
+  font-weight: 400;
+}
+.borders {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 14px;
+  line-height: 30px;
+  margin-top: 10%;
+}
+.border-country-day,
+.border-country-night {
+  padding: 0 10px 0 10px;
+  margin: 0;
+  border-radius: 5px;
+}
+.border-country-day {
+  background-color: white;
+  box-shadow: 2px 2px 10px #cdcdcd;
+  color: hsl(200, 15%, 8%);
+}
+
+.border-country-night {
+  background-color: hsl(209, 23%, 22%);
+  box-shadow: 2px 2px 10px rgb(37, 37, 37);
+  color: hsl(0, 0%, 98%);
+}
+
+.border-description {
+  margin: 0;
+  font-weight: 600;
+}

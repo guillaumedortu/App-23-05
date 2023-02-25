@@ -6,7 +6,12 @@ export default function Miniature(props) {
   };
 
   return (
-    <div className="miniature-item" onClick={handleDetail}>
+    <div
+      className={
+        props.theme === "day" ? "miniature-item-day" : "miniature-item-night"
+      }
+      onClick={handleDetail}
+    >
       <img alt="flag of all countries" className="flag" src={props.flag}></img>
       <div className="country-text">
         <p className="country-name">{props.name}</p>

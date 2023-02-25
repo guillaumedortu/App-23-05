@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Miniature from "./Miniature.js";
 import Toolbar from "./Toolbar.js";
 import Detail from "./Detail.js";
+import Header from "./Header.js";
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -10,6 +11,7 @@ export default function App() {
   const [error, setError] = useState("");
   const [region, setRegion] = useState("");
   const [detailName, setDetailName] = useState("");
+  const [theme, setTheme] = useState("day");
 
   useEffect(() => {
     if (search === "") {
@@ -41,6 +43,7 @@ export default function App() {
           flag={item.flags.svg}
           key={item.cca3}
           setDetailName={setDetailName}
+          theme={theme}
         />
       );
     } else if (region === "") {
@@ -53,8 +56,11 @@ export default function App() {
           flag={item.flags.svg}
           key={item.cca3}
           setDetailName={setDetailName}
+          theme={theme}
         />
       );
+    } else {
+      return null;
     }
   });
 
@@ -62,39 +68,72 @@ export default function App() {
     if (item.name.common === detailName) {
       return (
         <Detail
+          theme={theme}
+          setDetailName={setDetailName}
+          setSearch={setSearch}
           name={item.name.common}
+          flag={item.flags.svg}
           population={item.population}
           region={item.region}
           subregion={item.subregion}
           capital={item.capital}
           tld={item.tld[0]}
-          languages={Object.values(item.languages)}
-          setDetailName={setDetailName}
-          nativeName={Object.values(item.name.nativeName)[0].official}
+          borders={item.borders ? item.borders : []}
+          languages={
+            item.languages
+              ? Object.values(item.languages).join(" ")
+              : "No language"
+          }
+          nativeName={
+            item.name.nativeName
+              ? Object.values(item.name.nativeName)[0].official
+              : "No native name"
+          }
+          currencies={
+            item.currencies
+              ? Object.values(item.currencies)
+                  .map((x) => x.name)
+                  .join(", ")
+              : ["No currencie"]
+          }
         />
       );
+    } else {
+      return null;
     }
   });
 
-  console.log(detailName, data);
-
   return (
     <div>
-      <div className="header">
-        <h1>Where is the world?</h1>
-        <button>Dark Mode</button>
-      </div>
-      <Toolbar
-        data={data}
-        setData={setData}
-        search={search}
-        setSearch={setSearch}
-        region={region}
-        setRegion={setRegion}
-      />
-      <div className="miniatures-div">
-        {error !== "" ? error.message : miniaturesArrayComponent}
-      </div>
+      <Header theme={theme} setTheme={setTheme} />
+      {detailName === "" && (
+        <Toolbar
+          data={data}
+          setData={setData}
+          search={search}
+          setSearch={setSearch}
+          region={region}
+          setRegion={setRegion}
+          theme={theme}
+        />
+      )}
+
+      {detailName === "" && (
+        <div
+          className={
+            theme === "day" ? "miniatures-div-day" : "miniatures-div-night"
+          }
+        >
+          {error !== "" ? (
+            <p className={theme === "day" ? "error-day" : "error-night"}>
+              {error.message}
+            </p>
+          ) : (
+            miniaturesArrayComponent
+          )}
+        </div>
+      )}
+
       {detailName !== "" && detailComponentArray}
     </div>
   );
