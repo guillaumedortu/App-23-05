@@ -28,7 +28,7 @@ export default function App() {
           }
         })
         .then((result) => setData(result), setError(""))
-        .catch((error) => setError(error), setData([]));
+        .catch((err) => setError(err), setData([]));
     }
   }, [search]);
 
